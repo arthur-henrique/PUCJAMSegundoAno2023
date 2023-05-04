@@ -1,18 +1,23 @@
+using Cinemachine;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    public static GameManager instance;
+    private GameObject[] gameManagers;
     public GameObject overWorldPlayer;
     public GameObject fightingPlayer;
     private Transform whereToSpawn;
+    public int whichFightToLoad;
+    public bool hasFight;
+
+    public CinemachineVirtualCamera oWCam, fSCam;
+    public bool isGoingToFightScene;
 
     private void Awake()
     {
         DontDestroyOnLoad(this);
-        instance = this;
     }
 
     public void SetPositionToSpawn()
@@ -20,18 +25,58 @@ public class GameManager : MonoBehaviour
         whereToSpawn = overWorldPlayer.transform;
     }
 
-    public void TransitionToFight(string fightToLoad)
+    public void TransitionToFight(int fightToLoad)
     {
         SetPositionToSpawn();
-        StartCoroutine(FightTransition(fightToLoad));
+        whichFightToLoad = fightToLoad;
+        StartCoroutine(FightTransition());
     }
-    IEnumerator FightTransition(string fightToLoad)
+    public void TransitionToOverworld()
     {
-        // Begins Transition to next scene
-        yield return new WaitForSeconds(1f);
-        overWorldPlayer.SetActive(false);
-        fightingPlayer.SetActive(true);
-        // Loads next scene
+        overWorldPlayer.transform.position = whereToSpawn.position;
+        StartCoroutine(WorldTransition());
+
+    }
+    IEnumerator FightTransition()
+    {
+        // Begins SceneTransition Visuals
+        yield return new WaitForSeconds(0.99f);
+        isGoingToFightScene = true;
+        HandleCameras();
+    }
+    IEnumerator WorldTransition()
+    {
+        yield return new WaitForSeconds(0.99f);
+        hasFight = true;
+        isGoingToFightScene = false;
+        HandleCameras();
+
+    }
+    public void HandleCameras()
+    {
+        if(isGoingToFightScene)
+        {
+            oWCam.Priority = 1;
+            fSCam.Priority = 10;
+            overWorldPlayer.SetActive(false);
+            fightingPlayer.SetActive(true);
+        }
+        else
+        {
+            oWCam.Priority = 10;
+            fSCam.Priority = 1;
+            overWorldPlayer.SetActive(true);
+            fightingPlayer.SetActive(false);
+        }
+    }
+
+    private void OnLevelWasLoaded(int level)
+    {
+        gameManagers = GameObject.FindGameObjectsWithTag("GameManager");
+        if (gameManagers.Length > 1)
+        {
+            Destroy(gameManagers[1]);
+        }
     }
 
 }
