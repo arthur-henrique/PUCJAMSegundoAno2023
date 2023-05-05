@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class FighterAction : MonoBehaviour
 {
+    public static FighterAction instanceAction;
     private GameObject enemy;
     private GameObject player;
 
@@ -18,38 +19,35 @@ public class FighterAction : MonoBehaviour
     private GameObject faceIcon;
 
     private GameObject currentAttack;
-    GameObject victim;
+    public GameObject victim;
 
-
-
-
-     void Start()
+    private void Awake()
     {
-        StartCoroutine(RealStart());
+        instanceAction = this;
     }
-    IEnumerator RealStart()
+
+    private void Start()
     {
-        yield return new WaitForSeconds(0.14f);
+        faceIcon.SetActive(true);
+    }
+
+
+
+    public void SelectedAttack(string btn)
+    {
         player = GameObject.FindGameObjectWithTag("PlayerF");
         enemy = GameObject.FindGameObjectWithTag("Enemy");
-       
 
-
-    }
-    private void Update()
-    {
         victim = player;
-        Debug.Log(victim);
-
-
-        if (tag == "PlayerF")
+        if (CompareTag("PlayerF"))
         {
             victim = enemy;
         }
-    }
-    public void SelectedAttack(string btn)
-    {
        
+        Debug.Log(victim);
+
+
+
         if (btn.CompareTo("melee") == 0)
         {
             

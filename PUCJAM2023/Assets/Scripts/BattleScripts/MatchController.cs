@@ -9,25 +9,21 @@ public class MatchController : MonoBehaviour
     [SerializeField]
     private GameObject battleMenu;
 
-    private void Start()
+    
+    public void RealStartMatchController()
     {
-        StartCoroutine(RealStart());
-       
-    }
-    IEnumerator RealStart()
-    {
-        yield return new WaitForSeconds(0.33f);
+        
         fighterStats = new List<FighterStats>();
+        GameObject enemy = GameObject.FindGameObjectWithTag("Enemy");
+        FighterStats currentEnemyStats = enemy.GetComponent<FighterStats>();
+        currentEnemyStats.CalculateNextTurn(0);
+        fighterStats.Add(currentEnemyStats);
 
         GameObject player = GameObject.FindGameObjectWithTag("PlayerF");
         FighterStats currentFighterStats = player.GetComponent<FighterStats>();
         currentFighterStats.CalculateNextTurn(0);
         fighterStats.Add(currentFighterStats);
 
-        GameObject enemy = GameObject.FindGameObjectWithTag("Enemy");
-        FighterStats currentEnemyStats = enemy.GetComponent<FighterStats>();
-        currentEnemyStats.CalculateNextTurn(0);
-        fighterStats.Add(currentEnemyStats);
 
         fighterStats.Sort();
         battleMenu.SetActive(false);
@@ -35,7 +31,7 @@ public class MatchController : MonoBehaviour
     }
     public void NextTurn()
     {
-        battleMenu.SetActive(false);
+       
         FighterStats currentFighterStats = fighterStats[0];
         fighterStats.Remove(currentFighterStats);
         if (!currentFighterStats.GetDead())

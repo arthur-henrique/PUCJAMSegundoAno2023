@@ -5,37 +5,42 @@ using UnityEngine.UI;
 
 public class MakeButton : MonoBehaviour
 {
+    
     [SerializeField]
     private bool physical;
     private GameObject player;
-    void Start()
+    public string temp;
+    private void Start()
     {
-        StartCoroutine(RealStart());
+        StartCoroutine(AwakeDaBatalha());
     }
-    IEnumerator RealStart()
+    IEnumerator AwakeDaBatalha()
     {
-        yield return new WaitForSeconds(0.12f);
-        string temp = gameObject.name;
+        yield return new WaitForSeconds(0.1f);
+        temp = gameObject.name;
         gameObject.GetComponent<Button>().onClick.AddListener(() => AttachCallback(temp));
         player = GameObject.FindGameObjectWithTag("PlayerF");
 
 
 
     }
+   
+
+
 
     private void AttachCallback(string btn)
     {
         
 
-        if(btn.CompareTo("MeleeButton")== 0)
+        if (btn.CompareTo("MeleeButton")== 0)
         {
-            Debug.Log("meleeAtck");
             
             player.GetComponent<FighterAction>().SelectedAttack("melee");
+            
         }
         else if (btn.CompareTo("RangedButton") == 0)
         {
-            Debug.Log("rangeAtck");
+            
             player.GetComponent<FighterAction>().SelectedAttack("ranged");
         }
         else

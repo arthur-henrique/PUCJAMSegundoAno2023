@@ -7,7 +7,7 @@ using TMPro;
 
 public class FighterStats : MonoBehaviour, IComparable
 {
-    
+    public static FighterStats instanceStats;
     public TextMeshPro battleText;
 
     [SerializeField]
@@ -47,16 +47,15 @@ public class FighterStats : MonoBehaviour, IComparable
     private float xNewHealthScale;
     private float xNewMagicScale;
 
-    private void Start()
+    private void Awake()
     {
-
-        
-        StartCoroutine(RealStart());
-        
+        instanceStats = this;
     }
-    IEnumerator RealStart()
+
+
+    public void RealStartFighterStats()
     {
-        yield return new WaitForSeconds(0.12f);
+      
         if (gameObject.tag == "PlayerF")
         {
             healthFill = GameObject.FindGameObjectWithTag("PlayerHealthFill");
