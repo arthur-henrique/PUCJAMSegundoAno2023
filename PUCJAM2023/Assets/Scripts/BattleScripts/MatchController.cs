@@ -16,7 +16,7 @@ public class MatchController : MonoBehaviour
     }
     IEnumerator RealStart()
     {
-        yield return new WaitForSeconds(0.23f);
+        yield return new WaitForSeconds(0.33f);
         fighterStats = new List<FighterStats>();
 
         GameObject player = GameObject.FindGameObjectWithTag("PlayerF");
@@ -47,7 +47,7 @@ public class MatchController : MonoBehaviour
             if(currentUnit.tag == "PlayerF")
             {
                 battleMenu.SetActive(true);
-                Debug.Log("escolheu Player");
+                
             }
             else
             {

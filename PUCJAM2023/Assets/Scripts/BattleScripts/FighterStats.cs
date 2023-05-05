@@ -56,7 +56,7 @@ public class FighterStats : MonoBehaviour, IComparable
     }
     IEnumerator RealStart()
     {
-        yield return new WaitForSeconds(0.16f);
+        yield return new WaitForSeconds(0.12f);
         if (gameObject.tag == "PlayerF")
         {
             healthFill = GameObject.FindGameObjectWithTag("PlayerHealthFill");

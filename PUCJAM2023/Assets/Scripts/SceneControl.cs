@@ -37,7 +37,7 @@ public class SceneControl : MonoBehaviour
     }
     IEnumerator RealStart()
     {
-        yield return new WaitForSeconds(0.13f);
+        yield return new WaitForSeconds(0.1f);
         DisableFights();
         if (isAFightScene)
             StartCoroutine(GetFight());
@@ -53,13 +53,13 @@ public class SceneControl : MonoBehaviour
     }
     IEnumerator GetFight()
     {
-        yield return new WaitForSeconds(0.15f);
+        yield return new WaitForSeconds(0.1f);
         currentFightIndex = gameManager.whichFightToLoad;
         fights[currentFightIndex].SetActive(true);
     }
     IEnumerator ClearWorld()
     {
-        yield return new WaitForSeconds(0.15f);
+        yield return new WaitForSeconds(0.1f);
         for (int i = 0; i < fights.Length; i++)
         {
             if (gameManager.fightsDone.Contains(i))
@@ -70,7 +70,7 @@ public class SceneControl : MonoBehaviour
     }
     IEnumerator EnableFights()
     {
-        yield return new WaitForSeconds(0.8f);
+        yield return new WaitForSeconds(0.15f);
         for (int i = 0; i < fights.Length; i++)
         {
             fights[i].SetActive(true);

@@ -36,6 +36,7 @@ public class AttackScript : MonoBehaviour
 
     public void Attack(GameObject victim)
     {
+       
         attackerStats = owner.GetComponent<FighterStats>();
         targetStats = victim.GetComponent<FighterStats>();
 

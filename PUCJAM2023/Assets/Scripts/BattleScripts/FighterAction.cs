@@ -18,24 +18,38 @@ public class FighterAction : MonoBehaviour
     private GameObject faceIcon;
 
     private GameObject currentAttack;
-    
+    GameObject victim;
+
+
+
+
      void Start()
     {
         StartCoroutine(RealStart());
     }
     IEnumerator RealStart()
     {
-        yield return new WaitForSeconds(0.17f);
+        yield return new WaitForSeconds(0.14f);
         player = GameObject.FindGameObjectWithTag("PlayerF");
         enemy = GameObject.FindGameObjectWithTag("Enemy");
+       
+
+
     }
-    public void SelectedAttack(string btn)
+    private void Update()
     {
-        GameObject victim = player;
-        if(tag == "PlayerF")
+        victim = player;
+        Debug.Log(victim);
+
+
+        if (tag == "PlayerF")
         {
             victim = enemy;
         }
+    }
+    public void SelectedAttack(string btn)
+    {
+       
         if (btn.CompareTo("melee") == 0)
         {
             
