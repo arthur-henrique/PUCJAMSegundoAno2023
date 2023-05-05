@@ -1024,8 +1024,6 @@ MonoBehaviour:
   animator: {fileID: 1707562739}
   healthFill: {fileID: 0}
   magicFill: {fileID: 0}
-  healthFillEnemy: {fileID: 0}
-  magicFillEnemy: {fileID: 0}
   health: 100
   magic: 50
   meleeAtck: 30
@@ -1070,6 +1068,7 @@ MonoBehaviour:
   meleePrefab: {fileID: 1594668527}
   rangedPrefab: {fileID: 153573189}
   faceIcon: {fileID: 0}
+  victim: {fileID: 0}
 --- !u!212 &1707562741
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1136,6 +1135,7 @@ GameObject:
   - component: {fileID: 2040273891}
   - component: {fileID: 2040273890}
   - component: {fileID: 2040273889}
+  - component: {fileID: 2040273894}
   m_Layer: 0
   m_Name: OWPlayer
   m_TagString: Player
@@ -1266,7 +1266,7 @@ SpriteRenderer:
   m_SortingLayerID: 631885681
   m_SortingLayer: 1
   m_SortingOrder: 0
-  m_Sprite: {fileID: -9095717837082945937, guid: 207ee8102dd4143d288186ef0be518ee, type: 3}
+  m_Sprite: {fileID: 1655068767, guid: af6a63bc861921845822209de9cc3d78, type: 3}
   m_Color: {r: 1, g: 0.76792455, b: 0.76792455, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1277,6 +1277,26 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &2040273894
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2040273887}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 38893f926ec2bf24fb27501e1f234800, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
 --- !u!1 &2047080305
 GameObject:
   m_ObjectHideFlags: 0
