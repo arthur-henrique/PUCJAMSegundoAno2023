@@ -2257,7 +2257,7 @@ GameObject:
   - component: {fileID: 1225020160}
   m_Layer: 0
   m_Name: PaladinoPlayer
-  m_TagString: Player
+  m_TagString: PlayerF
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2890,7 +2890,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 3
   m_TargetDisplay: 0
 --- !u!224 &1580380854
 RectTransform:

@@ -11,8 +11,14 @@ public class MatchController : MonoBehaviour
 
     private void Start()
     {
+        StartCoroutine(RealStart());
+       
+    }
+    IEnumerator RealStart()
+    {
+        yield return new WaitForSeconds(0.23f);
         fighterStats = new List<FighterStats>();
-        
+
         GameObject player = GameObject.FindGameObjectWithTag("PlayerF");
         FighterStats currentFighterStats = player.GetComponent<FighterStats>();
         currentFighterStats.CalculateNextTurn(0);

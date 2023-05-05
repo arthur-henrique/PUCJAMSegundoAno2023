@@ -21,10 +21,14 @@ public class FighterAction : MonoBehaviour
     
      void Start()
     {
+        StartCoroutine(RealStart());
+    }
+    IEnumerator RealStart()
+    {
+        yield return new WaitForSeconds(0.17f);
         player = GameObject.FindGameObjectWithTag("PlayerF");
         enemy = GameObject.FindGameObjectWithTag("Enemy");
     }
-
     public void SelectedAttack(string btn)
     {
         GameObject victim = player;
@@ -34,6 +38,7 @@ public class FighterAction : MonoBehaviour
         }
         if (btn.CompareTo("melee") == 0)
         {
+            
              meleePrefab.GetComponent<AttackScript>().Attack(victim);
         }
         else if (btn.CompareTo("ranged") == 0)

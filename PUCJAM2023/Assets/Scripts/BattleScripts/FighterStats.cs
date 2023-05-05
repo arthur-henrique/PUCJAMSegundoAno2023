@@ -50,10 +50,41 @@ public class FighterStats : MonoBehaviour, IComparable
     private void Start()
     {
 
-        startHealth = health;
-        startMagic = magic;
-        StartCoroutine(ProcurarBarraDeVida());
         
+        StartCoroutine(RealStart());
+        
+    }
+    IEnumerator RealStart()
+    {
+        yield return new WaitForSeconds(0.16f);
+        if (gameObject.tag == "PlayerF")
+        {
+            healthFill = GameObject.FindGameObjectWithTag("PlayerHealthFill");
+            magicFill = GameObject.FindGameObjectWithTag("PlayerMagicFill");
+
+            healthTransform = healthFill.GetComponent<RectTransform>();
+            healthScale = healthFill.transform.localScale;
+
+            magicTransform = magicFill.GetComponent<RectTransform>();
+            magicScale = magicFill.transform.localScale;
+            startHealth = health;
+            startMagic = magic;
+        }
+        else
+        {
+            healthFill = GameObject.FindGameObjectWithTag("EnemyHealthFill");
+            magicFill = GameObject.FindGameObjectWithTag("EnemyMagicFill");
+            healthTransform = healthFill.GetComponent<RectTransform>();
+            healthScale = healthFill.transform.localScale;
+
+            magicTransform = magicFill.GetComponent<RectTransform>();
+            magicScale = magicFill.transform.localScale;
+
+            startHealth = health;
+            startMagic = magic;
+        }
+
+
     }
 
     public void ReceiveDamage(float damage)
@@ -106,30 +137,5 @@ public class FighterStats : MonoBehaviour, IComparable
         return next;
     }
 
-   IEnumerator ProcurarBarraDeVida()
-    {
-        yield return new WaitForSeconds(0.3f);
-        if (gameObject.tag == "PlayerF")
-        {
-            healthFill = GameObject.FindGameObjectWithTag("PlayerHealthFill") ;
-            magicFill = GameObject.FindGameObjectWithTag("PlayerMagicFill");
-           
-            healthTransform = healthFill.GetComponent<RectTransform>();
-            healthScale = healthFill.transform.localScale;
-
-            magicTransform = magicFill.GetComponent<RectTransform>();
-            magicScale = magicFill.transform.localScale;
-        }
-        else
-        {
-            healthFill = GameObject.FindGameObjectWithTag("EnemyHealthFill");
-            magicFill = GameObject.FindGameObjectWithTag("EnemyMagicFill");
-            healthTransform = healthFill.GetComponent<RectTransform>();
-            healthScale = healthFill.transform.localScale;
-
-            magicTransform = magicFill.GetComponent<RectTransform>();
-            magicScale = magicFill.transform.localScale;
-        }
-    }
-
+ 
 }
