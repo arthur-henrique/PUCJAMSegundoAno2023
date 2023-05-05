@@ -19,16 +19,16 @@ public class FighterAction : MonoBehaviour
 
     private GameObject currentAttack;
     
-     void Awake()
+     void Start()
     {
-        player = GameObject.FindGameObjectWithTag("Player");
+        player = GameObject.FindGameObjectWithTag("PlayerF");
         enemy = GameObject.FindGameObjectWithTag("Enemy");
     }
 
     public void SelectedAttack(string btn)
     {
         GameObject victim = player;
-        if(tag == "Player")
+        if(tag == "PlayerF")
         {
             victim = enemy;
         }

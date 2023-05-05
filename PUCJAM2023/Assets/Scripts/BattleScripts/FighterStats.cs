@@ -18,6 +18,8 @@ public class FighterStats : MonoBehaviour, IComparable
 
     [SerializeField]
     private GameObject magicFill;
+    
+    
 
     [Header("Stats")]
     public float health;
@@ -45,16 +47,13 @@ public class FighterStats : MonoBehaviour, IComparable
     private float xNewHealthScale;
     private float xNewMagicScale;
 
-    private void Awake()
+    private void Start()
     {
-        healthTransform = healthFill.GetComponent<RectTransform>();
-        healthScale = healthFill.transform.localScale;
-
-        magicTransform = magicFill.GetComponent<RectTransform>();
-        magicScale = magicFill.transform.localScale;
 
         startHealth = health;
         startMagic = magic;
+        StartCoroutine(ProcurarBarraDeVida());
+        
     }
 
     public void ReceiveDamage(float damage)
@@ -107,5 +106,30 @@ public class FighterStats : MonoBehaviour, IComparable
         return next;
     }
 
+   IEnumerator ProcurarBarraDeVida()
+    {
+        yield return new WaitForSeconds(0.3f);
+        if (gameObject.tag == "PlayerF")
+        {
+            healthFill = GameObject.FindGameObjectWithTag("PlayerHealthFill") ;
+            magicFill = GameObject.FindGameObjectWithTag("PlayerMagicFill");
+           
+            healthTransform = healthFill.GetComponent<RectTransform>();
+            healthScale = healthFill.transform.localScale;
+
+            magicTransform = magicFill.GetComponent<RectTransform>();
+            magicScale = magicFill.transform.localScale;
+        }
+        else
+        {
+            healthFill = GameObject.FindGameObjectWithTag("EnemyHealthFill");
+            magicFill = GameObject.FindGameObjectWithTag("EnemyMagicFill");
+            healthTransform = healthFill.GetComponent<RectTransform>();
+            healthScale = healthFill.transform.localScale;
+
+            magicTransform = magicFill.GetComponent<RectTransform>();
+            magicScale = magicFill.transform.localScale;
+        }
+    }
 
 }

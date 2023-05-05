@@ -13,7 +13,7 @@ public class MatchController : MonoBehaviour
     {
         fighterStats = new List<FighterStats>();
         
-        GameObject player = GameObject.FindGameObjectWithTag("Player");
+        GameObject player = GameObject.FindGameObjectWithTag("PlayerF");
         FighterStats currentFighterStats = player.GetComponent<FighterStats>();
         currentFighterStats.CalculateNextTurn(0);
         fighterStats.Add(currentFighterStats);
@@ -38,7 +38,7 @@ public class MatchController : MonoBehaviour
             currentFighterStats.CalculateNextTurn(currentFighterStats.nextActTurn);
             fighterStats.Add(currentFighterStats);
             fighterStats.Sort();
-            if(currentUnit.tag == "Player")
+            if(currentUnit.tag == "PlayerF")
             {
                 battleMenu.SetActive(true);
                 Debug.Log("escolheu Player");

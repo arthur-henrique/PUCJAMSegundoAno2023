@@ -8,6 +8,11 @@ TagManager:
   - Enemy
   - GameManager
   - SceneControl
+  - PlayerF
+  - PlayerHealthFill
+  - PlayerMagicFill
+  - EnemyMagicFill
+  - EnemyHealthFill
   layers:
   - Default
   - TransparentFX

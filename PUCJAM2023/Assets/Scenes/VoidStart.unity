@@ -986,7 +986,7 @@ GameObject:
   - component: {fileID: 1707562738}
   m_Layer: 0
   m_Name: FSPlayer
-  m_TagString: Player
+  m_TagString: PlayerF
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1024,6 +1024,8 @@ MonoBehaviour:
   animator: {fileID: 1707562739}
   healthFill: {fileID: 0}
   magicFill: {fileID: 0}
+  healthFillEnemy: {fileID: 0}
+  magicFillEnemy: {fileID: 0}
   health: 100
   magic: 50
   meleeAtck: 30
