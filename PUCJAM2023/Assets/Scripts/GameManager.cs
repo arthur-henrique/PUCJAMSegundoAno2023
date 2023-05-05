@@ -12,8 +12,12 @@ public class GameManager : MonoBehaviour
     public int whichFightToLoad;
     public bool hasFight;
 
+    public GameObject CameraManager;
     public CinemachineVirtualCamera oWCam, fSCam;
     public bool isGoingToFightScene;
+
+    public List<int> fightsDone;
+
 
     private void Awake()
     {
@@ -35,8 +39,8 @@ public class GameManager : MonoBehaviour
     {
         overWorldPlayer.transform.position = whereToSpawn.position;
         StartCoroutine(WorldTransition());
-
     }
+
     IEnumerator FightTransition()
     {
         // Begins SceneTransition Visuals
@@ -49,6 +53,7 @@ public class GameManager : MonoBehaviour
         yield return new WaitForSeconds(0.99f);
         hasFight = true;
         isGoingToFightScene = false;
+        fightingPlayer.transform.position = new Vector2(0,0);
         HandleCameras();
 
     }
@@ -56,27 +61,25 @@ public class GameManager : MonoBehaviour
     {
         if(isGoingToFightScene)
         {
-            oWCam.Priority = 1;
-            fSCam.Priority = 10;
+            CameraManager.SetActive(false);
             overWorldPlayer.SetActive(false);
             fightingPlayer.SetActive(true);
         }
         else
         {
-            oWCam.Priority = 10;
-            fSCam.Priority = 1;
+            CameraManager.SetActive(true);
             overWorldPlayer.SetActive(true);
             fightingPlayer.SetActive(false);
         }
     }
 
-    private void OnLevelWasLoaded(int level)
-    {
-        gameManagers = GameObject.FindGameObjectsWithTag("GameManager");
-        if (gameManagers.Length > 1)
-        {
-            Destroy(gameManagers[1]);
-        }
-    }
+    //private void OnLevelWasLoaded(int level)
+    //{
+    //    gameManagers = GameObject.FindGameObjectsWithTag("GameManager");
+    //    if (gameManagers.Length > 1)
+    //    {
+    //        Destroy(gameManagers[1]);
+    //    }
+    //}
 
 }

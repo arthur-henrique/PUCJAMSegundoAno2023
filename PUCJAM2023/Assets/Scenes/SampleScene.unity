@@ -1116,7 +1116,7 @@ GameObject:
   - component: {fileID: 1619594395}
   m_Layer: 0
   m_Name: SceneManager
-  m_TagString: Untagged
+  m_TagString: SceneControl
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1137,6 +1137,8 @@ MonoBehaviour:
   - {fileID: 1754770358}
   - {fileID: 201135089}
   - {fileID: 644933331}
+  fightsDone: []
+  currentFightIndex: 0
   isAFightScene: 1
 --- !u!4 &1619594394
 Transform:

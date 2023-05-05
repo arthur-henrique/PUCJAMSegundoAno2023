@@ -11,5 +11,8 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Oficina do Arthur.unity
     guid: 7a2ce1ba3ed484a48a999cbb555e2d9e
+  - enabled: 1
+    path: Assets/Scenes/Combate.unity
+    guid: 6c9f8c70ce70fd042bcadcabd46414ba
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 660430a6fd00ca548a8f3638f8f09f07, type: 2}

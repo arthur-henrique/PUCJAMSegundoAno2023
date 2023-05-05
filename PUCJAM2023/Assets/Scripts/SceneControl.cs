@@ -5,8 +5,9 @@ using UnityEngine;
 public class SceneControl : MonoBehaviour
 {
     public GameObject[] fights;
+    public List<GameObject> fightsDone;
     GameManager gameManager;
-    private int currentFightIndex;
+    public int currentFightIndex;
     public bool isAFightScene;
 
     private void Start()
@@ -22,6 +23,11 @@ public class SceneControl : MonoBehaviour
         {
             fights[i].SetActive(false);
         }
+    }
+
+    public void SetClearFight()
+    {
+        gameManager.fightsDone.Add(currentFightIndex);
     }
     IEnumerator LocateGameManager()
     {
@@ -43,6 +49,7 @@ public class SceneControl : MonoBehaviour
 
         if (!isAFightScene)
             StartCoroutine(EnableFights());
+
     }
     IEnumerator GetFight()
     {
@@ -53,7 +60,13 @@ public class SceneControl : MonoBehaviour
     IEnumerator ClearWorld()
     {
         yield return new WaitForSeconds(0.15f);
-        Destroy(fights[currentFightIndex]);
+        for (int i = 0; i < fights.Length; i++)
+        {
+            if (gameManager.fightsDone.Contains(i))
+            {
+                fights[i].transform.position = new Vector2(100, 100);
+            }
+        }
     }
     IEnumerator EnableFights()
     {
@@ -63,4 +76,6 @@ public class SceneControl : MonoBehaviour
             fights[i].SetActive(true);
         }
     }
+
+
 }

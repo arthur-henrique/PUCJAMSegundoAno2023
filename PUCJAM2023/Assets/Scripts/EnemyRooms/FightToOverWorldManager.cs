@@ -8,6 +8,7 @@ public class FightToOverWorldManager : MonoBehaviour
 {
     public static FightToOverWorldManager instance;
     GameManager gameManager;
+    SceneControl sceneControl;
     [Tooltip("Which scene to load.")]
     public string levelWorldScene;
 
@@ -26,7 +27,7 @@ public class FightToOverWorldManager : MonoBehaviour
         {
             return;
         }
-
+        sceneControl.SetClearFight();
         gameManager.TransitionToOverworld();
 
         StartCoroutine(WaitToTransition());
@@ -37,6 +38,9 @@ public class FightToOverWorldManager : MonoBehaviour
         yield return new WaitForSeconds(0.1f);
         GameObject game = GameObject.FindGameObjectWithTag("GameManager");
         gameManager = game.GetComponent<GameManager>();
+        GameObject control = GameObject.FindGameObjectWithTag("SceneControl");
+        sceneControl = control.GetComponent<SceneControl>();
+
     }
     IEnumerator WaitToTransition()
     {
