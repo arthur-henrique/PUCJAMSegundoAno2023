@@ -45,12 +45,16 @@ public class PlayerMovementAndAnimations : MonoBehaviour
         if(x != 0 || y != 0)
         {
             lastMovedDirection = direcao;
+            _anim.SetFloat("LastMovedX", lastMovedDirection.x);
+            _anim.SetFloat("LastMovedY", lastMovedDirection.y);
         }
     }
     void HandleMovement()
     {
         moveVelocity = direcao * _speedModifier;
         _rb.velocity = moveVelocity;
+        _anim.SetFloat("MovedX", direcao.x);
+        _anim.SetFloat("MovedY", direcao.y);
     }
     void HandleSpriteFlip()
     {
