@@ -18,6 +18,7 @@ public class GameManager : MonoBehaviour
 
     public List<int> fightsDone;
 
+    public GameObject transIn, transOut;
 
     private void Awake()
     {
@@ -44,18 +45,26 @@ public class GameManager : MonoBehaviour
     IEnumerator FightTransition()
     {
         // Begins SceneTransition Visuals
-        yield return new WaitForSeconds(0.99f);
+        TurnTransitionCanvasOn();
+        yield return new WaitForSeconds(2f);
         isGoingToFightScene = true;
         HandleCameras();
     }
     IEnumerator WorldTransition()
     {
-        yield return new WaitForSeconds(0.99f);
+        TurnTransitionCanvasOn();
+
+        yield return new WaitForSeconds(2f);
         hasFight = true;
         isGoingToFightScene = false;
         fightingPlayer.transform.position = new Vector2(0,0);
         HandleCameras();
 
+    }
+    IEnumerator TurnTransitionCanvasOutOff()
+    {
+        yield return new WaitForSeconds(1.4f);
+        transOut.SetActive(false);
     }
     public void HandleCameras()
     {
@@ -73,13 +82,24 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    //private void OnLevelWasLoaded(int level)
-    //{
-    //    gameManagers = GameObject.FindGameObjectsWithTag("GameManager");
-    //    if (gameManagers.Length > 1)
-    //    {
-    //        Destroy(gameManagers[1]);
-    //    }
-    //}
+    // Handle TransitionCanvas Anim
+    public void TurnTransitionCanvasOn()
+    {
+        transOut.SetActive(false);
+        transIn.SetActive(true);
+    }
+
+    public void TurnTransitionCanvasOff()
+    {
+        StartCoroutine(TurnTransitionCanvasOutOff());
+        transIn.SetActive(false);
+        transOut.SetActive(true);
+    }
+
+    private void OnLevelWasLoaded(int level)
+    {
+        TurnTransitionCanvasOff();
+
+    }
 
 }
