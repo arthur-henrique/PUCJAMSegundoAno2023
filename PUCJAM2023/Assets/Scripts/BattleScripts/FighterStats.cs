@@ -98,6 +98,7 @@ public class FighterStats : MonoBehaviour, IComparable
             gameObject.tag = "Dead";
             Destroy(healthFill);
             Destroy(gameObject);
+            FightToOverWorldManager.instance.FightDone();
         }
         else if(damage > 0)
         {

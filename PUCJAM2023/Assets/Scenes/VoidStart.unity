@@ -1477,7 +1477,7 @@ MonoBehaviour:
   magicFill: {fileID: 0}
   health: 100
   magic: 50
-  meleeAtck: 30
+  meleeAtck: 100
   rangeAtck: 25
   defense: 8
   speed: 20

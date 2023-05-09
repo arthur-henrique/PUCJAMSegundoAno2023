@@ -15,8 +15,7 @@ public class FighterAction : MonoBehaviour
     [SerializeField]
     private GameObject rangedPrefab;
    
-    [SerializeField]
-    private GameObject faceIcon;
+    
 
     private GameObject currentAttack;
     public GameObject victim;
@@ -26,11 +25,7 @@ public class FighterAction : MonoBehaviour
         instanceAction = this;
     }
 
-    private void Start()
-    {
-        faceIcon.SetActive(true);
-    }
-
+ 
 
 
     public void SelectedAttack(string btn)

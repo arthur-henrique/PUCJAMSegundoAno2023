@@ -50,7 +50,7 @@ public class MatchController : MonoBehaviour
                 
                 string attackType = Random.Range(0, 2) == 1 ? "melee" : "ranged";
                 currentUnit.GetComponent<FighterAction>().SelectedAttack(attackType);
-                Debug.Log("escolheu Inimigo");
+               
             }
         }
         else
