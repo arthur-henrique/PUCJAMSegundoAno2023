@@ -6,7 +6,7 @@ public class FightManager : MonoBehaviour
 {
     
     public MatchController matchController;
-    public MakeButton makeButton;
+    
     
     
   
@@ -19,7 +19,7 @@ public class FightManager : MonoBehaviour
     }
     IEnumerator AwakeDaBatalha()
     {
-        yield return new WaitForSeconds(0.12f);
+        yield return new WaitForSeconds(0.1f);
         FighterStats.instanceStats.RealStartFighterStats();
         
 
@@ -30,7 +30,7 @@ public class FightManager : MonoBehaviour
     {
         yield return new WaitForSeconds(1f);
         FighterStats.instanceStats.RealStartFighterStats();
-        
+
         matchController.RealStartMatchController();
     }
 
