@@ -88,7 +88,9 @@ public class FighterStats : MonoBehaviour, IComparable
 
     public void ReceiveDamage(float damage)
     {
-        
+
+       
+
         health = health - damage;
         animator.Play("Damage");
 
@@ -96,9 +98,9 @@ public class FighterStats : MonoBehaviour, IComparable
         {
             dead = true;
             gameObject.tag = "Dead";
-            Destroy(healthFill);
-            Destroy(gameObject);
+            gameObject.SetActive(false);
             FightToOverWorldManager.instance.FightDone();
+            
         }
         else if(damage > 0)
         {
