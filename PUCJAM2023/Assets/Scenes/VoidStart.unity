@@ -1449,7 +1449,7 @@ MonoBehaviour:
   meleeAtck: 30
   rangeAtck: 25
   defense: 8
-  speed: 10
+  speed: 20
   experience: 5
   nextActTurn: 0
   dead: 0
