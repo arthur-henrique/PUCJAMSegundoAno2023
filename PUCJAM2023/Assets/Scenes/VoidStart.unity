@@ -1441,7 +1441,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1707562737
 Transform:
   m_ObjectHideFlags: 0
@@ -1477,7 +1477,7 @@ MonoBehaviour:
   magicFill: {fileID: 0}
   health: 100
   magic: 50
-  meleeAtck: 100
+  meleeAtck: 1000
   rangeAtck: 25
   defense: 8
   speed: 20
@@ -1518,7 +1518,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   meleePrefab: {fileID: 1594668527}
   rangedPrefab: {fileID: 153573189}
-  faceIcon: {fileID: 0}
   victim: {fileID: 0}
 --- !u!212 &1707562741
 SpriteRenderer:
@@ -1750,7 +1749,7 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: 1}
   m_Size: {x: 1, y: 2}
   m_Direction: 0
 --- !u!50 &2040273892
@@ -1815,7 +1814,7 @@ SpriteRenderer:
   m_SortingLayerID: 631885681
   m_SortingLayer: 1
   m_SortingOrder: 0
-  m_Sprite: {fileID: 1655068767, guid: af6a63bc861921845822209de9cc3d78, type: 3}
+  m_Sprite: {fileID: -1408764421, guid: d287a1527a88db943967ba9353f81ba1, type: 3}
   m_Color: {r: 1, g: 0.76792455, b: 0.76792455, a: 1}
   m_FlipX: 1
   m_FlipY: 0

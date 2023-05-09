@@ -25,6 +25,11 @@ public class GameManager : MonoBehaviour
         DontDestroyOnLoad(this);
     }
 
+    private void Start()
+    {
+        print("I've Started");
+    }
+
     public void SetPositionToSpawn()
     {
         whereToSpawn = overWorldPlayer.transform;
@@ -45,6 +50,7 @@ public class GameManager : MonoBehaviour
     IEnumerator FightTransition()
     {
         // Begins SceneTransition Visuals
+        overWorldPlayer.GetComponent<PlayerMovementAndAnimations>().DisableControl();
         TurnTransitionCanvasOn();
         yield return new WaitForSeconds(2f);
         isGoingToFightScene = true;
@@ -56,7 +62,6 @@ public class GameManager : MonoBehaviour
 
         yield return new WaitForSeconds(2f);
         isGoingToFightScene = false;
-        fightingPlayer.transform.position = new Vector2(0,0);
         HandleCameras();
 
     }
@@ -72,12 +77,15 @@ public class GameManager : MonoBehaviour
             CameraManager.SetActive(false);
             overWorldPlayer.SetActive(false);
             fightingPlayer.SetActive(true);
+            overWorldPlayer.GetComponent<PlayerMovementAndAnimations>().EnableControl();
+
         }
         else
         {
             CameraManager.SetActive(true);
             overWorldPlayer.SetActive(true);
             fightingPlayer.SetActive(false);
+
         }
     }
 

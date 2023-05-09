@@ -34,6 +34,15 @@ public class PlayerMovementAndAnimations : MonoBehaviour
         _actions.Disable();
     }
 
+    public void EnableControl()
+    {
+        _actions.Enable();
+    }
+    public void DisableControl()
+    {
+        _actions.Disable();
+    }
+
     void HandleMovementInput()
     {
         x = _actions.Movimento.LesteOeste.ReadValue<float>();
