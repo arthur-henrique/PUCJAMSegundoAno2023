@@ -55,7 +55,6 @@ public class GameManager : MonoBehaviour
         TurnTransitionCanvasOn();
 
         yield return new WaitForSeconds(2f);
-        hasFight = true;
         isGoingToFightScene = false;
         fightingPlayer.transform.position = new Vector2(0,0);
         HandleCameras();

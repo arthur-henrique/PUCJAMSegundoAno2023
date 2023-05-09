@@ -19,7 +19,7 @@ public class FightManager : MonoBehaviour
     }
     IEnumerator AwakeDaBatalha()
     {
-        yield return new WaitForSeconds(0.1f);
+        yield return new WaitForSeconds(0.12f);
         FighterStats.instanceStats.RealStartFighterStats();
         
 

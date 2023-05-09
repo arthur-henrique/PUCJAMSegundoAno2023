@@ -59,12 +59,13 @@ public class SceneControl : MonoBehaviour
     }
     IEnumerator ClearWorld()
     {
-        yield return new WaitForSeconds(0.1f);
+        yield return new WaitForSeconds(0.01f);
         for (int i = 0; i < fights.Length; i++)
         {
             if (gameManager.fightsDone.Contains(i))
             {
-                fights[i].transform.position = new Vector2(100, 100);
+                print("MoveEnemy");
+                fights[i].transform.position = new Vector2(10000, 10000);
             }
         }
     }

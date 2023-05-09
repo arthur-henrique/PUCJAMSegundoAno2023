@@ -28,6 +28,7 @@ public class FightToOverWorldManager : MonoBehaviour
             return;
         }
         sceneControl.SetClearFight();
+        gameManager.hasFight = true;
         gameManager.TransitionToOverworld();
 
         StartCoroutine(WaitToTransition());
