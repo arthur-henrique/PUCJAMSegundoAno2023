@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: d287a1527a88db943967ba9353f81ba1
+guid: 385ba40863cfbb74e9d41f50158ad1dd
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -101,40 +101,16 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: Android
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: iPhone
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: PUCJAM_MC_0
+      name: PUCJAM_InimigoOutline_0
       rect:
         serializedVersion: 2
-        x: 5
+        x: 6
         y: 100
-        width: 21
+        width: 20
         height: 27
       alignment: 7
       pivot: {x: 0.5, y: 0}
@@ -143,19 +119,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ffd9abda9c668414395d9f9261aa4804
-      internalID: -1408764421
+      spriteID: febce919066812c41b6f42b847806ebf
+      internalID: -1577257302
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PUCJAM_MC_1
+      name: PUCJAM_InimigoOutline_1
       rect:
         serializedVersion: 2
-        x: 34
+        x: 38
         y: 96
-        width: 23
+        width: 19
         height: 29
       alignment: 7
       pivot: {x: 0.5, y: 0}
@@ -164,19 +140,40 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cfef080723a03f342abf53dfe606294a
-      internalID: -134077158
+      spriteID: 44219e53d1a88ab43ad764a57aef48db
+      internalID: 1046001241
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PUCJAM_MC_3
+      name: PUCJAM_InimigoOutline_2
       rect:
         serializedVersion: 2
-        x: 102
-        y: 96
+        x: 70
+        y: 99
         width: 20
+        height: 27
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4abb1065b3e49ca46bf28d6bef6e9afd
+      internalID: -1573026321
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PUCJAM_InimigoOutline_3
+      rect:
+        serializedVersion: 2
+        x: 103
+        y: 96
+        width: 19
         height: 29
       alignment: 7
       pivot: {x: 0.5, y: 0}
@@ -185,19 +182,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ae65fa362d9efc148b1d821ff380ec0f
-      internalID: 154774551
+      spriteID: 2bdada93ad1b2b547813e92ef3bc5fc0
+      internalID: -1016746604
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PUCJAM_MC_4
+      name: PUCJAM_InimigoOutline_4
       rect:
         serializedVersion: 2
         x: 6
         y: 67
-        width: 21
+        width: 20
         height: 27
       alignment: 7
       pivot: {x: 0.5, y: 0}
@@ -206,19 +203,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cc3199b1a4f2f024d88f10c98bceaa7c
-      internalID: -1072984753
+      spriteID: b122a586bb6a03f4a93f4baaa4aa4d6a
+      internalID: 1362187644
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PUCJAM_MC_5
+      name: PUCJAM_InimigoOutline_5
       rect:
         serializedVersion: 2
         x: 39
         y: 64
-        width: 23
+        width: 19
         height: 29
       alignment: 7
       pivot: {x: 0.5, y: 0}
@@ -227,19 +224,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c8f619c7bfc72bd40beffaa4b5d1772f
-      internalID: -1794370860
+      spriteID: 4076017d2a3243e4a9b244aa979b91f9
+      internalID: 326795853
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PUCJAM_MC_6
+      name: PUCJAM_InimigoOutline_6
       rect:
         serializedVersion: 2
         x: 70
         y: 67
-        width: 21
+        width: 20
         height: 27
       alignment: 7
       pivot: {x: 0.5, y: 0}
@@ -248,14 +245,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 06f9cc563bc54be48b020652be218665
-      internalID: -1335215960
+      spriteID: b1f98c741c686bd45a2b0c33ec5b6503
+      internalID: 969545097
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PUCJAM_MC_7
+      name: PUCJAM_InimigoOutline_7
       rect:
         serializedVersion: 2
         x: 102
@@ -269,19 +266,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5d49bdc508f53ed40af4d7e7659a2eda
-      internalID: 173412943
+      spriteID: 530670fb776f03047a7536cf9492feeb
+      internalID: 1696834524
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PUCJAM_MC_8
+      name: PUCJAM_InimigoOutline_8
       rect:
         serializedVersion: 2
         x: 8
         y: 35
-        width: 17
+        width: 16
         height: 27
       alignment: 7
       pivot: {x: 0.5, y: 0}
@@ -290,61 +287,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 75621f2ba8a192d428e21c8fcd1a97bf
-      internalID: 813706623
+      spriteID: 28f1e7d9b1f19c345aa7f763fef77162
+      internalID: 600484455
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PUCJAM_MC_10
-      rect:
-        serializedVersion: 2
-        x: 72
-        y: 35
-        width: 17
-        height: 27
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: f75d8cb9d3b64454aa9a11f071a4d5ab
-      internalID: 1925495611
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: PUCJAM_MC_2
-      rect:
-        serializedVersion: 2
-        x: 69
-        y: 99
-        width: 21
-        height: 27
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: d156985928656004fb5db8b178d3da7e
-      internalID: 512743604
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: PUCJAM_MC_9
+      name: PUCJAM_InimigoOutline_9
       rect:
         serializedVersion: 2
         x: 40
         y: 34
-        width: 17
+        width: 16
         height: 27
       alignment: 7
       pivot: {x: 0.5, y: 0}
@@ -353,19 +308,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8a141a949d58eda48aa101f492d3247f
-      internalID: 201155506
+      spriteID: 2b870f8418a43d444b507f764f102190
+      internalID: 1200773771
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PUCJAM_MC_11
+      name: PUCJAM_InimigoOutline_10
       rect:
         serializedVersion: 2
-        x: 103
-        y: 34
-        width: 18
+        x: 72
+        y: 35
+        width: 16
         height: 27
       alignment: 7
       pivot: {x: 0.5, y: 0}
@@ -374,19 +329,40 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0fadef81b1e861142b029afd63bf4e5e
-      internalID: -478095921
+      spriteID: 0d3d6d16873942843be13be44347c056
+      internalID: 934600075
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PUCJAM_MC_12
+      name: PUCJAM_InimigoOutline_11
+      rect:
+        serializedVersion: 2
+        x: 104
+        y: 34
+        width: 16
+        height: 27
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c35b7aa74a330d841a5c3d46e4642b32
+      internalID: 851112411
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PUCJAM_InimigoOutline_12
       rect:
         serializedVersion: 2
         x: 8
         y: 3
-        width: 17
+        width: 16
         height: 27
       alignment: 7
       pivot: {x: 0.5, y: 0}
@@ -395,19 +371,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0bb0a3c3989117a4cb7f5505faab62f3
-      internalID: -892946838
+      spriteID: 240bcc3ab2e1f444bb9af977e0c5398d
+      internalID: -324474432
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PUCJAM_MC_13
+      name: PUCJAM_InimigoOutline_13
       rect:
         serializedVersion: 2
         x: 40
         y: 2
-        width: 17
+        width: 16
         height: 27
       alignment: 7
       pivot: {x: 0.5, y: 0}
@@ -416,19 +392,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 57172e9657aa4424a840af0c360516c6
-      internalID: 231475397
+      spriteID: 4ca47583ecc0bd749a529ca3defb9150
+      internalID: -1661794318
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PUCJAM_MC_14
+      name: PUCJAM_InimigoOutline_14
       rect:
         serializedVersion: 2
         x: 72
         y: 3
-        width: 17
+        width: 16
         height: 27
       alignment: 7
       pivot: {x: 0.5, y: 0}
@@ -437,19 +413,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7d2e9211c865bd64a945b19bc32778ba
-      internalID: 1592645265
+      spriteID: 9a993be858d602045aa5a4a5c753897a
+      internalID: 869372813
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PUCJAM_MC_15
+      name: PUCJAM_InimigoOutline_15
       rect:
         serializedVersion: 2
         x: 104
         y: 2
-        width: 17
+        width: 16
         height: 27
       alignment: 7
       pivot: {x: 0.5, y: 0}
@@ -458,8 +434,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1e10b27fa52a41245b26e202aef9591a
-      internalID: -525290356
+      spriteID: c3624e0850074644e8c06a0be5ef3a86
+      internalID: -1079983903
       vertices: []
       indices: 
       edges: []
@@ -475,22 +451,22 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      PUCJAM_MC_7: 173412943
-      PUCJAM_MC_12: -892946838
-      PUCJAM_MC_6: -1335215960
-      PUCJAM_MC_13: 231475397
-      PUCJAM_MC_9: 201155506
-      PUCJAM_MC_5: -1794370860
-      PUCJAM_MC_8: 813706623
-      PUCJAM_MC_11: -478095921
-      PUCJAM_MC_10: 1925495611
-      PUCJAM_MC_15: -525290356
-      PUCJAM_MC_4: -1072984753
-      PUCJAM_MC_2: 512743604
-      PUCJAM_MC_0: -1408764421
-      PUCJAM_MC_3: 154774551
-      PUCJAM_MC_1: -134077158
-      PUCJAM_MC_14: 1592645265
+      PUCJAM_InimigoOutline_7: 1696834524
+      PUCJAM_InimigoOutline_13: -1661794318
+      PUCJAM_InimigoOutline_6: 969545097
+      PUCJAM_InimigoOutline_1: 1046001241
+      PUCJAM_InimigoOutline_0: -1577257302
+      PUCJAM_InimigoOutline_3: -1016746604
+      PUCJAM_InimigoOutline_2: -1573026321
+      PUCJAM_InimigoOutline_9: 1200773771
+      PUCJAM_InimigoOutline_11: 851112411
+      PUCJAM_InimigoOutline_14: 869372813
+      PUCJAM_InimigoOutline_10: 934600075
+      PUCJAM_InimigoOutline_5: 326795853
+      PUCJAM_InimigoOutline_8: 600484455
+      PUCJAM_InimigoOutline_12: -324474432
+      PUCJAM_InimigoOutline_4: 1362187644
+      PUCJAM_InimigoOutline_15: -1079983903
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

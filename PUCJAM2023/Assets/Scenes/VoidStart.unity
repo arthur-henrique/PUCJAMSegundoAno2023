@@ -1684,7 +1684,7 @@ GameObject:
   - component: {fileID: 2040273890}
   - component: {fileID: 2040273889}
   - component: {fileID: 2040273894}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: OWPlayer
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -1816,7 +1816,7 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: -1408764421, guid: d287a1527a88db943967ba9353f81ba1, type: 3}
   m_Color: {r: 1, g: 0.76792455, b: 0.76792455, a: 1}
-  m_FlipX: 1
+  m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 1, y: 2}

@@ -69,11 +69,11 @@ public class PlayerMovementAndAnimations : MonoBehaviour
     {
         if(lastMovedDirection.x < 0)
         {
-            _sr.flipX = true;
+            _sr.flipX = false;
         }
         else if(lastMovedDirection.x > 0)
         {
-            _sr.flipX = false;
+            _sr.flipX = true;
         }
     }
 

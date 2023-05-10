@@ -64,7 +64,8 @@ public class SceneControl : MonoBehaviour
         {
             if (gameManager.fightsDone.Contains(i))
             {
-                print("MoveEnemy");
+                if (fights[i].GetComponent<LeftRightPattern>() != null)
+                    fights[i].GetComponent<LeftRightPattern>().enabled = false;
                 fights[i].transform.position = new Vector2(10000, 10000);
             }
         }
