@@ -13,6 +13,7 @@ TagManager:
   - PlayerMagicFill
   - EnemyMagicFill
   - EnemyHealthFill
+  - AttcksPanel
   layers:
   - Default
   - TransparentFX

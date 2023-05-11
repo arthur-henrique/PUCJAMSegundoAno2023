@@ -2,12 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine; 
 using UnityEngine.UI;
+using System.Linq;
 
 public class FighterAction : MonoBehaviour
 {
     public static FighterAction instanceAction;
     private GameObject enemy;
+
     private GameObject player;
+    public List<GameObject> attacks;
 
     [SerializeField]
     private GameObject meleePrefab;
@@ -41,21 +44,12 @@ public class FighterAction : MonoBehaviour
        
         Debug.Log(victim);
 
+        GameObject temp = attacks.Where(obj => obj.name == btn).SingleOrDefault();
 
+            temp.GetComponent<AttackScript>().Attack(victim);
 
-        if (btn.CompareTo("melee") == 0)
-        {
             
-             meleePrefab.GetComponent<AttackScript>().Attack(victim);
-        }
-        else if (btn.CompareTo("ranged") == 0)
-        {
-            rangedPrefab.GetComponent<AttackScript>().Attack(victim);
-        }
-        else
-        {
-            Debug.Log("run");
-        }
+      
 
     }
 

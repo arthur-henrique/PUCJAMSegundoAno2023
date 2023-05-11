@@ -17,17 +17,15 @@ public class AttackScript : MonoBehaviour
     private float magicCost;
 
     [SerializeField]
-    private float minAttackMultiplier;
+    private float danoBase;
 
     [SerializeField]
-    private float maxAttackMultiplier;
-
-
-    [SerializeField]
-    private float minDefenseMultiplier;
+    private float modificador;
 
     [SerializeField]
-    private float maxDefenseMultiplier;
+    private string tipoDoAttck;
+
+    
 
     private FighterStats attackerStats;
     private FighterStats targetStats;
@@ -36,27 +34,62 @@ public class AttackScript : MonoBehaviour
 
     public void Attack(GameObject victim)
     {
-       
+        
         attackerStats = owner.GetComponent<FighterStats>();
         targetStats = victim.GetComponent<FighterStats>();
+       
 
         
-        if(attackerStats.magic >= magicCost)
+        if(attackerStats.mana >= magicCost)
         {
-
-            float multiplier = Random.Range(minAttackMultiplier, maxAttackMultiplier);
+           if(tipoDoAttck == targetStats.fraqueza)
+            {
+                damage = modificador * (danoBase * (attackerStats.forca / (targetStats.defense * targetStats.defense / 20)));
+                damage = modificador * (targetStats.defense * targetStats.defense / (attackerStats.forca * attackerStats.forca * danoBase * 20));
+            }
+            else
+            {
+                damage = 1 * (danoBase * (attackerStats.forca / (targetStats.defense * targetStats.defense / 20)));
+                damage = 1 * (targetStats.defense * targetStats.defense / (attackerStats.forca * attackerStats.forca * danoBase * 20));
+            }
            
-            damage = multiplier * attackerStats.meleeAtck;
+           
+            
             if (magicAttack)
             {
-                damage = multiplier * attackerStats.rangeAtck;
+                if (tipoDoAttck == targetStats.fraqueza)
+                {
+                    damage =  modificador * (danoBase * (attackerStats.magia / (targetStats.defense * targetStats.defense / 20)));
+                    damage = modificador * (targetStats.defense * targetStats.defense / (attackerStats.magia * attackerStats.magia * danoBase * 20));
+                }
+                else
+                {
+                    damage = 1 * (danoBase * (attackerStats.magia / (targetStats.defense * targetStats.defense / 20)));
+                    damage = 1 * (targetStats.defense * targetStats.defense / (attackerStats.magia * attackerStats.magia * danoBase * 20));
+                }
             }
-               
-            float defenseMultiplier = Random.Range(minDefenseMultiplier, maxDefenseMultiplier);
-            damage = Mathf.Max(0, damage - (defenseMultiplier * targetStats.defense));
+
+            Debug.Log(Mathf.CeilToInt(damage));
             owner.GetComponent<Animator>().Play(animationName);
             targetStats.ReceiveDamage(Mathf.CeilToInt(damage));
             attackerStats.UpdateMagicFill(magicCost);
+            if (targetStats.GetDead())
+            {
+                FighterAction fighterAction = owner.GetComponent<FighterAction>();
+                for (int i = 0; i < attackerStats.slots.Length; i++)
+                {
+                    if (attackerStats.isFull[i] == false)
+                    {
+                        attackerStats.isFull[i] = true;
+                        Instantiate(targetStats.botaoDoAttck, attackerStats.slots[i].transform, false);
+                        break;
+                    }
+                }
+                        
+
+                fighterAction.attacks.Add(targetStats.attackParaDropar);
+                attackerStats.UparDeNivel(targetStats.experience);
+            }
 
         }
         else

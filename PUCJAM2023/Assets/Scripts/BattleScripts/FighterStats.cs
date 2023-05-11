@@ -18,17 +18,25 @@ public class FighterStats : MonoBehaviour, IComparable
 
     [SerializeField]
     private GameObject magicFill;
-    
-    
+
+    public GameObject attackParaDropar, botaoDoAttck;
+    public bool[] isFull;
+    public GameObject[] slots;
+
+
 
     [Header("Stats")]
+    public int level;
     public float health;
-    public float magic;
-    public float meleeAtck;
-    public float rangeAtck;
+    public float mana;
+    public float forca;
+    public float magia;
     public float defense;
     public float speed;
     public float experience;
+    public string fraqueza;
+
+    public float proximoPlayerNivel = 1;
    
     private float startHealth;
     private float startMagic;
@@ -51,11 +59,17 @@ public class FighterStats : MonoBehaviour, IComparable
     {
         instanceStats = this;
     }
-
-
-    public void RealStartFighterStats()
+    private void Start()
     {
-      
+        StartCoroutine(RealStartFighterStats());
+        Debug.Log(gameObject);
+        Debug.Log("Eu startei");
+    }
+
+    public IEnumerator RealStartFighterStats()
+    {
+        yield return new WaitForSeconds(0.1f);
+
         if (gameObject.tag == "PlayerF")
         {
             healthFill = GameObject.FindGameObjectWithTag("PlayerHealthFill");
@@ -66,8 +80,9 @@ public class FighterStats : MonoBehaviour, IComparable
 
             magicTransform = magicFill.GetComponent<RectTransform>();
             magicScale = magicFill.transform.localScale;
+            mana = mana * magia;
             startHealth = health;
-            startMagic = magic;
+            startMagic = mana;
         }
         else
         {
@@ -78,9 +93,9 @@ public class FighterStats : MonoBehaviour, IComparable
 
             magicTransform = magicFill.GetComponent<RectTransform>();
             magicScale = magicFill.transform.localScale;
-
+            mana = mana * magia;
             startHealth = health;
-            startMagic = magic;
+            startMagic = mana;
         }
 
 
@@ -91,7 +106,7 @@ public class FighterStats : MonoBehaviour, IComparable
 
        
 
-        health = health - damage;
+        health -= damage;
         animator.Play("Damage");
 
         if(health <= 0)
@@ -109,13 +124,34 @@ public class FighterStats : MonoBehaviour, IComparable
         }
         Invoke("ContinueGame", 2);
     }
+    public void UparDeNivel(float xp)
+    {
+        float xpNecessario = proximoPlayerNivel * proximoPlayerNivel * 80;
+        experience += xp;
+
+        if(experience >= xpNecessario )
+        {
+            experience = 0;
+            level++;
+            proximoPlayerNivel++;
+            health += 150;
+            mana += 5;
+            forca += 5;
+            magia += 5;
+            defense += 5;
+            speed += 5;
+
+
+
+        }
+    }
 
     public void UpdateMagicFill(float cost)
     {   
         if(cost > 0)
         {
-            magic = magic - cost;
-            xNewMagicScale = magicScale.x * (magic / startMagic);
+            mana = mana - cost;
+            xNewMagicScale = magicScale.x * (mana / startMagic);
             magicFill.transform.localScale = new Vector2(xNewMagicScale, magicScale.y);
 
         }

@@ -32,23 +32,10 @@ public class MakeButton : MonoBehaviour
     {
         
 
-        if (btn.CompareTo("MeleeButton")== 0)
-        {
-            
-            player.GetComponent<FighterAction>().SelectedAttack("melee");
-            
-        }
-        else if (btn.CompareTo("RangedButton") == 0)
-        {
-            
-            player.GetComponent<FighterAction>().SelectedAttack("ranged");
-        }
-        else
-        {
-            player.GetComponent<FighterAction>().SelectedAttack("run");
-        }
-
+            player.GetComponent<FighterAction>().SelectedAttack(temp);
+        
     }
+
 
 
 
