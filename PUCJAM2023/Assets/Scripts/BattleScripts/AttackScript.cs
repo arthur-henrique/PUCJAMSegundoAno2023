@@ -41,7 +41,7 @@ public class AttackScript : MonoBehaviour
         targetStats = victim.GetComponent<FighterStats>();
 
         
-        if(attackerStats.maxMana >= magicCost)
+        if(attackerStats.magic >= magicCost)
         {
 
             float multiplier = Random.Range(minAttackMultiplier, maxAttackMultiplier);
@@ -56,7 +56,7 @@ public class AttackScript : MonoBehaviour
             damage = Mathf.Max(0, damage - (defenseMultiplier * targetStats.defense));
             owner.GetComponent<Animator>().Play(animationName);
             targetStats.ReceiveDamage(Mathf.CeilToInt(damage));
-            //attackerStats.UpdateMagicFill(magicCost);
+            attackerStats.UpdateMagicFill(magicCost);
 
         }
         else
