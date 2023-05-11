@@ -12,6 +12,6 @@ public class GameBoot : MonoBehaviour
     IEnumerator MoveToScene()
     {
         yield return new WaitForSeconds(0.01f);
-        SceneManager.LoadScene("Oficina do Arthur");
+        SceneManager.LoadScene("Fase Um");
     }
 }

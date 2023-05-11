@@ -8,7 +8,7 @@ public class GameManager : MonoBehaviour
     private GameObject[] gameManagers;
     public GameObject overWorldPlayer;
     public GameObject fightingPlayer;
-    private Transform whereToSpawn;
+    public Transform whereToSpawn;
     public int whichFightToLoad;
     public bool hasFight;
 

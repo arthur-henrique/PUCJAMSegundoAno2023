@@ -14,5 +14,11 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Combate.unity
     guid: 6c9f8c70ce70fd042bcadcabd46414ba
+  - enabled: 1
+    path: Assets/Scenes/Fase Um.unity
+    guid: e8b55b4f818ced34895d9d0979e71894
+  - enabled: 1
+    path: Assets/Scenes/Fase Dois.unity
+    guid: e7efb7710091c434fa37d2a7141a632c
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 660430a6fd00ca548a8f3638f8f09f07, type: 2}

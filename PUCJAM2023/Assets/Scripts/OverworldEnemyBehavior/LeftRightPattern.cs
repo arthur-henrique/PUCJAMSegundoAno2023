@@ -12,37 +12,42 @@ public class LeftRightPattern : MonoBehaviour
     public float waitTime;
     int currentPointIndex;
     Vector2 movingDirection;
+    public bool needsToMove;
     bool once;
 
     private void Update()
     {
-        if(!detection.targetVisible)
+        
+        if (!detection.targetVisible)
         {
-            if (transform.position != points[currentPointIndex].position)
+            if (needsToMove)
             {
-                enemyAnimator.SetBool("isMoving", true);
-                transform.position = Vector2.MoveTowards(transform.position, points[currentPointIndex].position, speed * Time.deltaTime);
-                HandleAnimation(points[currentPointIndex].position);
-            }
-            else
-            {
-                if (!once)
+                if (transform.position != points[currentPointIndex].position)
                 {
-                    once = true;
-                    StartCoroutine(Wait());
+                    enemyAnimator.SetBool("isMoving", true);
+                    transform.position = Vector2.MoveTowards(transform.position, points[currentPointIndex].position, speed * Time.deltaTime);
+                    HandleAnimation(points[currentPointIndex].position);
+                }
+                else
+                {
+                    if (!once)
+                    {
+                        once = true;
+                        StartCoroutine(Wait());
+                    }
                 }
             }
+                
         }
         else
         {
-            if(transform.position != detection.Target.position)
+            if (transform.position != detection.Target.position)
             {
                 enemyAnimator.SetBool("isMoving", true);
                 transform.position = Vector2.MoveTowards(transform.position, detection.Target.position, speed * Time.deltaTime);
                 HandleAnimation(detection.Target.position);
             }
         }
-        
     }
 
     IEnumerator Wait()

@@ -49,7 +49,8 @@ public class AIDetection : MonoBehaviour
     }
     private void DetectTarget()
     {
-        if(Target == null)
+
+        if (Target == null)
         {
             CheckIfPlayerInRange();
         }
@@ -79,7 +80,9 @@ public class AIDetection : MonoBehaviour
 
     IEnumerator DetectionCoroutine()
     {
-        yield return new WaitForSeconds(detectionCheckDelay);
+
+        yield return new WaitForSecondsRealtime(0.2f);
+
         DetectTarget();
         StartCoroutine(DetectionCoroutine());
     }
