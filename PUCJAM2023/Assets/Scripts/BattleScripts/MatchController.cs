@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class MatchController : MonoBehaviour
 {
+   
     private List<FighterStats> fighterStats;
     [SerializeField]
     private GameObject battleMenu;
@@ -34,7 +35,7 @@ public class MatchController : MonoBehaviour
        
         FighterStats currentFighterStats = fighterStats[0];
         fighterStats.Remove(currentFighterStats);
-        if (!currentFighterStats.GetDead())
+        if (!currentFighterStats)
         {
             GameObject currentUnit = currentFighterStats.gameObject;
             currentFighterStats.CalculateNextTurn(currentFighterStats.nextActTurn);
