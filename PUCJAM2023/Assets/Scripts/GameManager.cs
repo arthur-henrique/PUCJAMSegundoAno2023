@@ -76,7 +76,7 @@ public class GameManager : MonoBehaviour
         {
             CameraManager.SetActive(false);
             overWorldPlayer.SetActive(false);
-            //fightingPlayer.SetActive(true);
+            fightingPlayer.SetActive(true);
             overWorldPlayer.GetComponent<PlayerMovementAndAnimations>().EnableControl();
 
         }
@@ -84,7 +84,7 @@ public class GameManager : MonoBehaviour
         {
             CameraManager.SetActive(true);
             overWorldPlayer.SetActive(true);
-            //fightingPlayer.SetActive(false);
+            fightingPlayer.SetActive(false);
 
         }
     }

@@ -9,8 +9,6 @@ public class FighterStats : MonoBehaviour, IComparable
 {
     public static FighterStats instanceStats;
     public TextMeshPro battleText;
-    public string unitName;
-    public int level; 
 
     [SerializeField]
     private Animator animator;
@@ -24,20 +22,16 @@ public class FighterStats : MonoBehaviour, IComparable
     
 
     [Header("Stats")]
-    public int maxHealth;
-    public int maxMana;
-    public int meleeAtck;
-    public int rangeAtck;
+    public float health;
+    public float magic;
+    public float meleeAtck;
+    public float rangeAtck;
     public float defense;
     public float speed;
     public float experience;
-    public int minDefenseMultiplier;
-    public int maxDefenseMultiplier;
-
-    public int currentHealth;
-    
-    public int currentMana;
-    
+   
+    private float startHealth;
+    private float startMagic;
 
     [HideInInspector]
     public int nextActTurn;
@@ -61,76 +55,75 @@ public class FighterStats : MonoBehaviour, IComparable
 
     public void RealStartFighterStats()
     {
-        currentMana = maxMana;
-        currentHealth = maxHealth;
       
-        //if (gameObject.tag == "PlayerF")
-        //{
-        //    healthFill = GameObject.FindGameObjectWithTag("PlayerHealthFill");
-        //    magicFill = GameObject.FindGameObjectWithTag("PlayerMagicFill");
+        if (gameObject.tag == "PlayerF")
+        {
+            healthFill = GameObject.FindGameObjectWithTag("PlayerHealthFill");
+            magicFill = GameObject.FindGameObjectWithTag("PlayerMagicFill");
 
-        //    healthTransform = healthFill.GetComponent<RectTransform>();
-        //    healthScale = healthFill.transform.localScale;
+            healthTransform = healthFill.GetComponent<RectTransform>();
+            healthScale = healthFill.transform.localScale;
 
-            
-        //}
-        //else
-        //{
-        //    healthFill = GameObject.FindGameObjectWithTag("EnemyHealthFill");
-        //    magicFill = GameObject.FindGameObjectWithTag("EnemyMagicFill");
-        //    healthTransform = healthFill.GetComponent<RectTransform>();
-        //    healthScale = healthFill.transform.localScale;
+            magicTransform = magicFill.GetComponent<RectTransform>();
+            magicScale = magicFill.transform.localScale;
+            startHealth = health;
+            startMagic = magic;
+        }
+        else
+        {
+            healthFill = GameObject.FindGameObjectWithTag("EnemyHealthFill");
+            magicFill = GameObject.FindGameObjectWithTag("EnemyMagicFill");
+            healthTransform = healthFill.GetComponent<RectTransform>();
+            healthScale = healthFill.transform.localScale;
 
-        //    magicTransform = magicFill.GetComponent<RectTransform>();
-        //    magicScale = magicFill.transform.localScale;
+            magicTransform = magicFill.GetComponent<RectTransform>();
+            magicScale = magicFill.transform.localScale;
 
-        //    maxHealth = maxHealth;
-        //    maxMana = maxMana;
-        //}
+            startHealth = health;
+            startMagic = magic;
+        }
 
 
     }
 
-    public bool ReceiveDamage(int damage)
+    public void ReceiveDamage(float damage)
     {
 
        
 
-         currentHealth -= damage;
+        health = health - damage;
         animator.Play("Damage");
 
-        if(maxHealth <= 0)
+        if(health <= 0)
         {
             dead = true;
             gameObject.tag = "Dead";
             gameObject.SetActive(false);
             FightToOverWorldManager.instance.FightDone();
-            return true;
+            
         }
-        else
+        else if(damage > 0)
         {
-            return false;
+            xNewHealthScale = healthScale.x * (health / startHealth);
+            healthFill.transform.localScale = new Vector2(xNewHealthScale, healthScale.y);
         }
-        //else if(damage > 0)
-        //{
-        //    xNewHealthScale = healthScale.x * (health / maxHealth);
-        //    healthFill.transform.localScale = new Vector2(xNewHealthScale, healthScale.y);
-        //}
-        //Invoke("ContinueGame", 2);
+        Invoke("ContinueGame", 2);
     }
-    
-    
 
-        public void UpdateMagicFill(int cost)
+    public void UpdateMagicFill(float cost)
     {   
         if(cost > 0)
         {
-            currentMana -= cost;
-           
+            magic = magic - cost;
+            xNewMagicScale = magicScale.x * (magic / startMagic);
+            magicFill.transform.localScale = new Vector2(xNewMagicScale, magicScale.y);
 
         }
     }
-    
+    public bool GetDead()
+    {
+        return dead;
+    } 
     void ContinueGame()
     {
         GameObject.Find("MatchController").GetComponent<MatchController>().NextTurn();
