@@ -8434,6 +8434,7 @@ MonoBehaviour:
   overWorldPlayer: {fileID: 2040273887}
   fightingPlayer: {fileID: 1707562736}
   whereToSpawn: {fileID: 0}
+  zero: {fileID: 0}
   whichFightToLoad: 0
   hasFight: 0
   CameraManager: {fileID: 652056410}
@@ -8441,6 +8442,7 @@ MonoBehaviour:
   fSCam: {fileID: 1553809566}
   isGoingToFightScene: 0
   fightsDone: 
+  hasKilledBoss: 0
   transIn: {fileID: 1977240689}
   transOut: {fileID: 587666076}
 --- !u!4 &2047080307

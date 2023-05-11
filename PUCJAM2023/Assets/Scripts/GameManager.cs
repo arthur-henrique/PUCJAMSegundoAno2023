@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
     public GameObject overWorldPlayer;
     public GameObject fightingPlayer;
     public Transform whereToSpawn;
+    public Transform zero;
     public int whichFightToLoad;
     public bool hasFight;
 
@@ -17,6 +18,7 @@ public class GameManager : MonoBehaviour
     public bool isGoingToFightScene;
 
     public List<int> fightsDone;
+    public bool hasKilledBoss = false;
 
     public GameObject transIn, transOut;
 
@@ -44,6 +46,12 @@ public class GameManager : MonoBehaviour
     public void TransitionToOverworld()
     {
         overWorldPlayer.transform.position = whereToSpawn.position;
+        StartCoroutine(WorldTransition());
+    }
+    public void TransitionBetweenLevels()
+    {
+        overWorldPlayer.transform.position = Vector3.zero;
+        ResetKilledBoss();
         StartCoroutine(WorldTransition());
     }
 
@@ -103,10 +111,18 @@ public class GameManager : MonoBehaviour
         transOut.SetActive(true);
     }
 
+    public void HasKilledBoss()
+    {
+        hasKilledBoss = true;
+    }
+    public void ResetKilledBoss()
+    {
+        hasKilledBoss = false;
+    }
+
     private void OnLevelWasLoaded(int level)
     {
         TurnTransitionCanvasOff();
-
     }
 
 }
