@@ -2754,6 +2754,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8666894447650234218, guid: 46851ed2816ddde42b5e38d1c78781af, type: 3}
+      propertyPath: doorAnim
+      value: 
+      objectReference: {fileID: 1246832718}
+    - target: {fileID: 8666894447650234218, guid: 46851ed2816ddde42b5e38d1c78781af, type: 3}
       propertyPath: nextLevel
       value: Fase Tres
       objectReference: {fileID: 0}
@@ -2771,6 +2775,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 46851ed2816ddde42b5e38d1c78781af, type: 3}
+--- !u!95 &1246832718 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 8666894447650234214, guid: 46851ed2816ddde42b5e38d1c78781af, type: 3}
+  m_PrefabInstance: {fileID: 1246832717}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1492764172
 GameObject:
   m_ObjectHideFlags: 0
@@ -11575,7 +11584,7 @@ MonoBehaviour:
   m_BlendStyleIndex: 0
   m_FalloffIntensity: 0.5
   m_Color: {r: 0.59607846, g: 0.59607846, b: 0.59607846, a: 1}
-  m_Intensity: 0.25
+  m_Intensity: 0.5
   m_LightVolumeIntensity: 1
   m_LightVolumeIntensityEnabled: 0
   m_ApplyToSortingLayers: 0000000071cfa925
