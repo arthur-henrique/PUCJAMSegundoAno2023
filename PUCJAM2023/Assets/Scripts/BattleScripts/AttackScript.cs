@@ -25,7 +25,11 @@ public class AttackScript : MonoBehaviour
     [SerializeField]
     private string tipoDoAttck;
 
-    
+    public float heal;
+    public float attckBuff;
+    public float defenseBuff;
+
+    public bool buff, hasHeal;
 
     private FighterStats attackerStats;
     private FighterStats targetStats;
@@ -40,12 +44,14 @@ public class AttackScript : MonoBehaviour
        
 
         
-        if(attackerStats.mana >= magicCost)
+        if(attackerStats.mana >= magicCost && !buff)
         {
-            Debug.Log(targetStats.defense);
+            owner.GetComponent<Animator>().Play(animationName);
+            Debug.Log(animationName);
+           
             damage = (modificador * attackerStats.forca * attackerStats.forca * danoBase * 20 ) / (targetStats.defense * targetStats.defense) ;
             
-            Debug.Log(damage);
+            
                 
 
             
@@ -62,35 +68,43 @@ public class AttackScript : MonoBehaviour
 
             }
 
-            Debug.Log(Mathf.CeilToInt(damage));
-            owner.GetComponent<Animator>().Play(animationName);
+            
             targetStats.ReceiveDamage(Mathf.CeilToInt(damage));
             attackerStats.UpdateMagicFill(magicCost);
             if (targetStats.GetDead())
             {
-                FighterAction fighterAction = owner.GetComponent<FighterAction>();
-                for (int i = 0; i < attackerStats.slots.Length; i++)
-                {
-                    if (attackerStats.isFull[i] == false)
-                    {
-                        attackerStats.isFull[i] = true;
-                        Instantiate(targetStats.botaoDoAttck, attackerStats.slots[i].transform, false);
-                        break;
-                    }
-                }
-                        
-
-                fighterAction.attacks.Add(targetStats.attackParaDropar);
+               
                 attackerStats.UparDeNivel(targetStats.experience);
+               
             }
+                        
+              
+
 
         }
         else
         {
             Invoke("SkipTurnContinue", 2);
         }
-        
-        
+
+        if (buff)
+        {
+            FighterStats stats = owner.GetComponent<FighterStats>();
+            if(owner.name == "FSPlayer" && hasHeal)
+            {
+                heal = 5 * stats.magia;
+            }
+
+            stats.health += heal;
+            stats.forca += attckBuff;
+            stats.defense += defenseBuff;
+            StartCoroutine(ClearBuffs());
+            if(heal != 0)
+            {
+               stats.xNewHealthScale = stats.healthScale.x + (stats.health / heal);
+                stats.healthFill.transform.localScale = new Vector2(stats.xNewHealthScale, stats.healthScale.y);
+            }
+        }
         
 
 
@@ -98,6 +112,14 @@ public class AttackScript : MonoBehaviour
     void SkipTurnContinue()
     {
         GameObject.Find("MatchController").GetComponent<MatchController>().NextTurn();
+    }
+    IEnumerator ClearBuffs()
+    {
+        yield return new WaitForSeconds(10f);
+        FighterStats stats = owner.GetComponent<FighterStats>();
+        stats.forca -= attckBuff;
+        stats.defense -= defenseBuff;
+       
     }
 }
 

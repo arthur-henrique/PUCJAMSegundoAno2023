@@ -13,17 +13,15 @@ public class FighterStats : MonoBehaviour, IComparable
     [SerializeField]
     private Animator animator;
 
-    [SerializeField]
-    private GameObject healthFill;
+    
+    public GameObject healthFill;
 
-    [SerializeField]
-    private GameObject magicFill;
+    
+    public GameObject magicFill;
 
-    public GameObject attackParaDropar, botaoDoAttck;
-    public bool[] isFull;
-    public GameObject[] slots;
     public bool hasSecondFase;
     public GameObject secondFase;
+    
 
 
 
@@ -40,7 +38,7 @@ public class FighterStats : MonoBehaviour, IComparable
 
     public float proximoPlayerNivel = 1;
    
-    private float startHealth;
+    public float startHealth;
     private float startMagic;
 
     [HideInInspector]
@@ -48,14 +46,14 @@ public class FighterStats : MonoBehaviour, IComparable
 
     public bool dead = false;
 
-    private Transform healthTransform;
-    private Transform magicTransform;
+    public Transform healthTransform;
+    public Transform magicTransform;
 
-    private Vector2 healthScale;
-    private Vector2 magicScale;
+    public Vector2 healthScale;
+    public Vector2 magicScale;
 
-    private float xNewHealthScale;
-    private float xNewMagicScale;
+    public float xNewHealthScale;
+    public float xNewMagicScale;
 
     private void Awake()
     {
@@ -102,6 +100,7 @@ public class FighterStats : MonoBehaviour, IComparable
 
 
     }
+    
 
     public void ReceiveDamage(float damage)
     {
@@ -135,6 +134,8 @@ public class FighterStats : MonoBehaviour, IComparable
                 health = startHealth;
                 dead = true;
                 gameObject.tag = "Dead";
+                magicScale = magicFill.transform.localScale;
+                healthScale = healthFill.transform.localScale;
                 gameObject.SetActive(false);
                 FightToOverWorldManager.instance.FightLost();
 

@@ -2101,7 +2101,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4c55fee6c8e47841b4938d2f012d394, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelFightScene: Combate
+  levelFightScene: Combate 1
 --- !u!4 &664203896
 Transform:
   m_ObjectHideFlags: 0

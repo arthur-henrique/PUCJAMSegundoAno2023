@@ -47,9 +47,9 @@ public class MatchController : MonoBehaviour
             }
             else
             {
-                
-                string attackType = Random.Range(0, 2) == 1 ? "melee" : "ranged";
-                currentUnit.GetComponent<FighterAction>().SelectedAttack(attackType);
+                List<GameObject> attcks = currentUnit.GetComponent<FighterAction>().attacks;
+                string nomeDoAttck = GetRandomItem(attcks).name;
+                currentUnit.GetComponent<FighterAction>().SelectedAttack(nomeDoAttck);
                
             }
         }
@@ -58,6 +58,15 @@ public class MatchController : MonoBehaviour
             NextTurn();
         }
 
+    }
+
+    public GameObject GetRandomItem(List<GameObject> listToRandomize)
+    {
+        int randomNum = Random.Range(0, listToRandomize.Count);
+        GameObject printRandom = listToRandomize[randomNum];
+        return printRandom;
+        
+      
     }
 
 }
