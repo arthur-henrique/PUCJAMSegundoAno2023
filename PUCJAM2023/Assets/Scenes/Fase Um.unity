@@ -1919,7 +1919,7 @@ MonoBehaviour:
   - {fileID: 2055626846}
   - {fileID: 2098608340}
   fightsDone: []
-  currentFightIndex: 0
+  currentFightIndex: 2
   isAFightScene: 0
 --- !u!114 &664203895
 MonoBehaviour:

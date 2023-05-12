@@ -180,6 +180,34 @@ public partial class @PlayerActions : IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": true
                 }
             ]
+        },
+        {
+            ""name"": ""UI"",
+            ""id"": ""1fbd6263-ab35-46d7-8baa-8c1dd527e97b"",
+            ""actions"": [
+                {
+                    ""name"": ""Esc"",
+                    ""type"": ""Button"",
+                    ""id"": ""1f2a682d-b5dc-4d77-8e1d-242e71dc4c5f"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""4f784390-e9c0-4883-90eb-8c0122961433"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Esc"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": []
@@ -188,6 +216,9 @@ public partial class @PlayerActions : IInputActionCollection2, IDisposable
         m_Movimento = asset.FindActionMap("Movimento", throwIfNotFound: true);
         m_Movimento_NorteSul = m_Movimento.FindAction("Norte/Sul", throwIfNotFound: true);
         m_Movimento_LesteOeste = m_Movimento.FindAction("Leste/Oeste", throwIfNotFound: true);
+        // UI
+        m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
+        m_UI_Esc = m_UI.FindAction("Esc", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -284,9 +315,46 @@ public partial class @PlayerActions : IInputActionCollection2, IDisposable
         }
     }
     public MovimentoActions @Movimento => new MovimentoActions(this);
+
+    // UI
+    private readonly InputActionMap m_UI;
+    private IUIActions m_UIActionsCallbackInterface;
+    private readonly InputAction m_UI_Esc;
+    public struct UIActions
+    {
+        private @PlayerActions m_Wrapper;
+        public UIActions(@PlayerActions wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Esc => m_Wrapper.m_UI_Esc;
+        public InputActionMap Get() { return m_Wrapper.m_UI; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(UIActions set) { return set.Get(); }
+        public void SetCallbacks(IUIActions instance)
+        {
+            if (m_Wrapper.m_UIActionsCallbackInterface != null)
+            {
+                @Esc.started -= m_Wrapper.m_UIActionsCallbackInterface.OnEsc;
+                @Esc.performed -= m_Wrapper.m_UIActionsCallbackInterface.OnEsc;
+                @Esc.canceled -= m_Wrapper.m_UIActionsCallbackInterface.OnEsc;
+            }
+            m_Wrapper.m_UIActionsCallbackInterface = instance;
+            if (instance != null)
+            {
+                @Esc.started += instance.OnEsc;
+                @Esc.performed += instance.OnEsc;
+                @Esc.canceled += instance.OnEsc;
+            }
+        }
+    }
+    public UIActions @UI => new UIActions(this);
     public interface IMovimentoActions
     {
         void OnNorteSul(InputAction.CallbackContext context);
         void OnLesteOeste(InputAction.CallbackContext context);
+    }
+    public interface IUIActions
+    {
+        void OnEsc(InputAction.CallbackContext context);
     }
 }

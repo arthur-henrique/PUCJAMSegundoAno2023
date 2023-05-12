@@ -2,6 +2,7 @@ using Cinemachine;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -31,7 +32,11 @@ public class GameManager : MonoBehaviour
     {
         print("I've Started");
     }
+    private void Update()
+    {
+        
 
+    }
     public void SetPositionToSpawn()
     {
         whereToSpawn = overWorldPlayer.transform;
@@ -129,6 +134,11 @@ public class GameManager : MonoBehaviour
     private void OnLevelWasLoaded(int level)
     {
         TurnTransitionCanvasOff();
+        Scene scene = SceneManager.GetActiveScene();
+        if(scene.name == "MainMenu")
+        {
+            Destroy(gameObject);
+        }
     }
 
 }
