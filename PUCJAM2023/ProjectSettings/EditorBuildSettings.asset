@@ -9,6 +9,12 @@ EditorBuildSettings:
     path: Assets/Scenes/SampleScene.unity
     guid: 8c9cfa26abfee488c85f1582747f6a02
   - enabled: 1
+    path: Assets/Scenes/MainMenu.unity
+    guid: ff6652884623a174992e0704f99e2962
+  - enabled: 1
+    path: Assets/Scenes/VoidStart.unity
+    guid: bf2a4c6bfb3b72843b2ee68ac8d46a37
+  - enabled: 1
     path: Assets/Scenes/Oficina do Arthur.unity
     guid: 7a2ce1ba3ed484a48a999cbb555e2d9e
   - enabled: 1
