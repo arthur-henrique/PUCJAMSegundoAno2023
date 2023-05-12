@@ -1843,6 +1843,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 771387c5bdf08d84eb81ecdab321556c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  checkpoint: {x: 0, y: 0, z: 0}
   _speedModifier: 10
   _runMultiplier: 0
 --- !u!70 &372271895
@@ -6860,6 +6861,8 @@ MonoBehaviour:
   - {fileID: 1854068975}
   - {fileID: 454238637}
   - {fileID: 1948287601}
+  hasSecondFase: 0
+  secondFase: {fileID: 0}
   level: 0
   health: 100
   mana: 5
@@ -7011,7 +7014,7 @@ MonoBehaviour:
   m_BlendStyleIndex: 0
   m_FalloffIntensity: 0.856
   m_Color: {r: 0.7700249, g: 0.9795384, b: 0.990566, a: 1}
-  m_Intensity: 0.99
+  m_Intensity: 1.15
   m_LightVolumeIntensity: 1
   m_LightVolumeIntensityEnabled: 0
   m_ApplyToSortingLayers: 0000000071cfa9258577ae9a
@@ -7061,8 +7064,8 @@ MonoBehaviour:
     m_Extent: {x: 0.9985302, y: 0.99853027, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
-  m_PointLightInnerRadius: 1.15
-  m_PointLightOuterRadius: 7
+  m_PointLightInnerRadius: 3
+  m_PointLightOuterRadius: 9
   m_ShapeLightParametricSides: 5
   m_ShapeLightParametricAngleOffset: 0
   m_ShapeLightParametricRadius: 1
@@ -8291,6 +8294,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 771387c5bdf08d84eb81ecdab321556c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  checkpoint: {x: 0, y: 0, z: 0}
   _speedModifier: 10
   _runMultiplier: 0
 --- !u!70 &2040273891
