@@ -135,11 +135,11 @@ public class FighterStats : MonoBehaviour, IComparable
             level++;
             proximoPlayerNivel++;
             health += 150;
-            mana += 5;
-            forca += 5;
-            magia += 5;
-            defense += 5;
-            speed += 5;
+            mana += 10;
+            forca += 10;
+            magia += 10;
+            defense += 10;
+            speed += 10;
 
 
 

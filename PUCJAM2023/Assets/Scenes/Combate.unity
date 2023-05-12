@@ -811,7 +811,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5730590161186743909, guid: 93d0355b1bca72e47886a5834f8bc548, type: 3}
       propertyPath: modificador
-      value: 2
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 5730590161186743909, guid: 93d0355b1bca72e47886a5834f8bc548, type: 3}
       propertyPath: tipoDoAttck
@@ -2005,7 +2005,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 090baa3a75c93be48afad135938bf664, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelWorldScene: Oficina do Arthur
+  levelWorldScene: Fase Um
 --- !u!114 &548286204
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5970,7 +5970,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7367732237113581747, guid: 1194b4e461003e147b81eb9f377adad7, type: 3}
       propertyPath: modificador
-      value: 2
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 7367732237113581747, guid: 1194b4e461003e147b81eb9f377adad7, type: 3}
       propertyPath: tipoDoAttck
@@ -6508,11 +6508,11 @@ MonoBehaviour:
   isFull: 
   slots: []
   level: 0
-  health: 100
+  health: 200
   mana: 5
-  forca: 20
-  magia: 20
-  defense: 5
+  forca: 15
+  magia: 15
+  defense: 40
   speed: 15
   experience: 20
   fraqueza: Fisico

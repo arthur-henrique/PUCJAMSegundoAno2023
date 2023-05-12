@@ -42,31 +42,24 @@ public class AttackScript : MonoBehaviour
         
         if(attackerStats.mana >= magicCost)
         {
-           if(tipoDoAttck == targetStats.fraqueza)
-            {
-                damage = modificador * (danoBase * (attackerStats.forca / (targetStats.defense * targetStats.defense / 20)));
-                damage = modificador * (targetStats.defense * targetStats.defense / (attackerStats.forca * attackerStats.forca * danoBase * 20));
-            }
-            else
-            {
-                damage = 1 * (danoBase * (attackerStats.forca / (targetStats.defense * targetStats.defense / 20)));
-                damage = 1 * (targetStats.defense * targetStats.defense / (attackerStats.forca * attackerStats.forca * danoBase * 20));
-            }
+            Debug.Log(targetStats.defense);
+            damage = (modificador * attackerStats.forca * attackerStats.forca * danoBase * 20 ) / (targetStats.defense * targetStats.defense) ;
+            
+            Debug.Log(damage);
+                
+
+            
+           
            
            
             
             if (magicAttack)
             {
-                if (tipoDoAttck == targetStats.fraqueza)
-                {
-                    damage =  modificador * (danoBase * (attackerStats.magia / (targetStats.defense * targetStats.defense / 20)));
-                    damage = modificador * (targetStats.defense * targetStats.defense / (attackerStats.magia * attackerStats.magia * danoBase * 20));
-                }
-                else
-                {
-                    damage = 1 * (danoBase * (attackerStats.magia / (targetStats.defense * targetStats.defense / 20)));
-                    damage = 1 * (targetStats.defense * targetStats.defense / (attackerStats.magia * attackerStats.magia * danoBase * 20));
-                }
+                
+                   
+                 damage = (modificador * attackerStats.magia * attackerStats.magia * danoBase * 20) / (targetStats.defense * targetStats.defense);
+                 
+
             }
 
             Debug.Log(Mathf.CeilToInt(damage));
