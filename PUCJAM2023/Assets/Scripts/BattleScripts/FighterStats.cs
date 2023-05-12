@@ -22,6 +22,8 @@ public class FighterStats : MonoBehaviour, IComparable
     public GameObject attackParaDropar, botaoDoAttck;
     public bool[] isFull;
     public GameObject[] slots;
+    public bool hasSecondFase;
+    public GameObject secondFase;
 
 
 
@@ -108,19 +110,58 @@ public class FighterStats : MonoBehaviour, IComparable
 
         health -= damage;
         animator.Play("Damage");
+        if (gameObject.name == "Enemy")
+        {
 
-        if(health <= 0)
-        {
-            dead = true;
-            gameObject.tag = "Dead";
-            gameObject.SetActive(false);
-            FightToOverWorldManager.instance.FightDone();
+            if(health <= 0)
+             {
+                dead = true;
+                gameObject.tag = "Dead";
+                gameObject.SetActive(false);
+                FightToOverWorldManager.instance.FightDone();
             
+            }
+            else if(damage > 0)
+            {
+                xNewHealthScale = healthScale.x * (health / startHealth);
+                healthFill.transform.localScale = new Vector2(xNewHealthScale, healthScale.y);
+             }
         }
-        else if(damage > 0)
+        if (gameObject.name == "FSPlayer")
         {
-            xNewHealthScale = healthScale.x * (health / startHealth);
-            healthFill.transform.localScale = new Vector2(xNewHealthScale, healthScale.y);
+
+            if (health <= 0)
+            {
+                health = startHealth;
+                dead = true;
+                gameObject.tag = "Dead";
+                gameObject.SetActive(false);
+                FightToOverWorldManager.instance.FightLost();
+
+            }
+            else if (damage > 0)
+            {
+                xNewHealthScale = healthScale.x * (health / startHealth);
+                healthFill.transform.localScale = new Vector2(xNewHealthScale, healthScale.y);
+            }
+        }
+        if (gameObject.name == "Boss")
+        {
+
+            if (health <= 0 && hasSecondFase)
+            {
+                gameObject.SetActive(false);
+                secondFase.SetActive(true);
+               
+               
+              
+
+            }
+            else if (damage > 0)
+            {
+                xNewHealthScale = healthScale.x * (health / startHealth);
+                healthFill.transform.localScale = new Vector2(xNewHealthScale, healthScale.y);
+            }
         }
         Invoke("ContinueGame", 2);
     }

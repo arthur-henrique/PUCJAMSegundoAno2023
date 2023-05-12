@@ -34,6 +34,19 @@ public class FightToOverWorldManager : MonoBehaviour
         StartCoroutine(WaitToTransition());
     }
 
+    public void FightLost()
+    {
+        if (levelWorldScene == null)
+        {
+            return;
+        }
+        sceneControl.SetClearFight();
+        gameManager.hasFight = false;
+        gameManager.TransitionToOverworldLost();
+
+        StartCoroutine(WaitToTransition());
+    }
+
     IEnumerator LocateGameManager()
     {
         yield return new WaitForSeconds(0.1f);

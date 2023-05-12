@@ -8,6 +8,7 @@ public class PlayerMovementAndAnimations : MonoBehaviour
     private Rigidbody2D _rb;
     private SpriteRenderer _sr;
     private Animator _anim;
+    public Vector3 checkpoint;
     private PlayerActions _actions;
     [SerializeField] float _speedModifier;
     [SerializeField] float _runMultiplier;
@@ -85,5 +86,15 @@ public class PlayerMovementAndAnimations : MonoBehaviour
     {
         HandleMovement();
         HandleSpriteFlip();
+    }
+
+    public void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Checkpoint"))
+        {
+            Debug.Log("pegou Checkpoint");
+            checkpoint = collision.GetComponent<Transform>().position;
+
+        }
     }
 }

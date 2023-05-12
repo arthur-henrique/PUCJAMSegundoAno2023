@@ -48,6 +48,12 @@ public class GameManager : MonoBehaviour
         overWorldPlayer.transform.position = whereToSpawn.position;
         StartCoroutine(WorldTransition());
     }
+    public void TransitionToOverworldLost()
+    {
+        Vector3 newWhereToSpawn = overWorldPlayer.GetComponent<PlayerMovementAndAnimations>().checkpoint;
+        overWorldPlayer.transform.position = newWhereToSpawn;
+        StartCoroutine(WorldTransition());
+    }
     public void TransitionBetweenLevels()
     {
         overWorldPlayer.transform.position = Vector3.zero;

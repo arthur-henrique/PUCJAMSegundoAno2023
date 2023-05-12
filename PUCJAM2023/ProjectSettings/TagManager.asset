@@ -14,6 +14,7 @@ TagManager:
   - EnemyMagicFill
   - EnemyHealthFill
   - AttcksPanel
+  - Checkpoint
   layers:
   - Default
   - TransparentFX
