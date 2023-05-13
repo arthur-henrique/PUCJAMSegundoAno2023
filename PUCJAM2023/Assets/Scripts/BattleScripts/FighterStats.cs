@@ -134,10 +134,9 @@ public class FighterStats : MonoBehaviour, IComparable
                 health = startHealth;
                 dead = true;
                 gameObject.tag = "Dead";
-                magicScale = magicFill.transform.localScale;
-                healthScale = healthFill.transform.localScale;
                 gameObject.SetActive(false);
-                FightToOverWorldManager.instance.FightLost();
+                FightToOverWorldManager.instance.FightDone();
+               
 
             }
             else if (damage > 0)

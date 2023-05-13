@@ -99,9 +99,9 @@ public class AttackScript : MonoBehaviour
             stats.forca += attckBuff;
             stats.defense += defenseBuff;
             StartCoroutine(ClearBuffs());
-            if(heal != 0)
+            if(heal != 0 && stats.health != stats.startHealth)
             {
-               stats.xNewHealthScale = stats.healthScale.x + (stats.health / heal);
+               stats.xNewHealthScale = heal;
                 stats.healthFill.transform.localScale = new Vector2(stats.xNewHealthScale, stats.healthScale.y);
             }
         }

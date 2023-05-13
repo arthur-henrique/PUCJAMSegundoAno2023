@@ -208,10 +208,6 @@ MonoBehaviour:
   animator: {fileID: 8596611557844167969}
   healthFill: {fileID: 0}
   magicFill: {fileID: 0}
-  attackParaDropar: {fileID: 0}
-  botaoDoAttck: {fileID: 0}
-  isFull: 
-  slots: []
   hasSecondFase: 0
   secondFase: {fileID: 0}
   level: 8
@@ -221,11 +217,18 @@ MonoBehaviour:
   magia: 50
   defense: 110
   speed: 20
-  experience: 50
+  experience: 500
   fraqueza: 
   proximoPlayerNivel: 1
+  startHealth: 0
   nextActTurn: 0
   dead: 0
+  healthTransform: {fileID: 0}
+  magicTransform: {fileID: 0}
+  healthScale: {x: 0, y: 0}
+  magicScale: {x: 0, y: 0}
+  xNewHealthScale: 0
+  xNewMagicScale: 0
 --- !u!95 &8596611557844167969
 Animator:
   serializedVersion: 5
